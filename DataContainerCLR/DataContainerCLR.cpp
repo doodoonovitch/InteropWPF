@@ -47,7 +47,7 @@ String^ DataWrapper::WStr::get()
 void DataWrapper::WStr::set(String^ value)
 {
 	System::IntPtr ptr = Marshal::StringToHGlobalUni(value);
-	m_DataContainer->SetString((char*)ptr.ToPointer());
+	m_DataContainer->SetString((wchar_t*)ptr.ToPointer());
 	Marshal::FreeHGlobal(ptr);
 	RaisePropertyChanged(gcnew String("WStr"));
 }

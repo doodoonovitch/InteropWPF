@@ -44,6 +44,7 @@ void DataContainer::SetString(const char* value)
 	}
 
 	free(m_str);
+	m_str = nullptr;
 	if (value != nullptr)
 	{
 		m_str = _strdup(value);
@@ -63,6 +64,7 @@ void DataContainer::SetString(const wchar_t* value)
 	}
 
 	free(m_wstr);
+	m_wstr = nullptr;
 	if (value != nullptr)
 	{
 		m_wstr = _wcsdup(value);
