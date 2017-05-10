@@ -1,4 +1,4 @@
-// DataContainer.cpp : définit les fonctions exportées pour l'application DLL.
+ï»¿// DataContainer.cppÂ : dÃ©finit les fonctions exportÃ©es pour l'application DLL.
 //
 
 #include "stdafx.h"
@@ -6,20 +6,20 @@
 #include <malloc.h>
 
 
-// Il s'agit d'un exemple de variable exportée
+// Il s'agit d'un exemple de variable exportÃ©e
 DATACONTAINER_API int nDataContainer=0;
 
-// Il s'agit d'un exemple de fonction exportée.
+// Il s'agit d'un exemple de fonction exportÃ©e.
 DATACONTAINER_API int fnDataContainer(void)
 {
     return 42;
 }
 
-// Il s'agit du constructeur d'une classe qui a été exportée.
-// consultez DataContainer.h pour la définition de la classe
+// Il s'agit du constructeur d'une classe qui a Ã©tÃ© exportÃ©e.
+// consultez DataContainer.h pour la dÃ©finition de la classe
 DataContainer::DataContainer()
-	: m_str(_strdup("An ANSI or multi - bytes string"))
-	, m_wstr(_wcsdup(L"UNICODE string"))
+	: m_str(_strdup("English (ANSI string)"))
+	, m_wstr(_wcsdup(L"æ—¥æœ¬èªž (UNICODE string)"))
 	,m_int(10)
 {
     return;
@@ -31,12 +31,12 @@ DataContainer::~DataContainer()
 	free(m_wstr);
 }
 
-const char* DataContainer::GetString() const
+const char* DataContainer::GetStrANSI() const
 {
 	return m_str;
 }
 
-void DataContainer::SetString(const char* value)
+void DataContainer::SetStrANSI(const char* value)
 {
 	if (value == m_str)
 	{
@@ -51,12 +51,12 @@ void DataContainer::SetString(const char* value)
 	}
 }
 
-const wchar_t* DataContainer::GetWString() const
+const wchar_t* DataContainer::GetStrUNICODE() const
 {
 	return m_wstr;
 }
 
-void DataContainer::SetString(const wchar_t* value)
+void DataContainer::SetStrUNICODE(const wchar_t* value)
 {
 	if (value == m_wstr)
 	{

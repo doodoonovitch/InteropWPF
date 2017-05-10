@@ -24,32 +24,32 @@ DataWrapper::!DataWrapper()
 	ReleaseNativeData();
 }
 
-String^ DataWrapper::Str::get()
+String^ DataWrapper::StrANSI::get()
 {
-	String^ str = gcnew String(m_DataContainer->GetString());
+	String^ str = gcnew String(m_DataContainer->GetStrANSI());
 	return str;
 }
 
-void DataWrapper::Str::set(String^ value)
+void DataWrapper::StrANSI::set(String^ value)
 {
 	System::IntPtr ptr = Marshal::StringToHGlobalAnsi(value);
-	m_DataContainer->SetString((char*)ptr.ToPointer());
+	m_DataContainer->SetStrANSI((char*)ptr.ToPointer());
 	Marshal::FreeHGlobal(ptr);
-	RaisePropertyChanged(gcnew String("Str"));
+	RaisePropertyChanged(gcnew String("StrANSI"));
 }
 
-String^ DataWrapper::WStr::get()
+String^ DataWrapper::StrUNICODE::get()
 {
-	String^ str = gcnew String(m_DataContainer->GetWString());
+	String^ str = gcnew String(m_DataContainer->GetStrUNICODE());
 	return str;
 }
 
-void DataWrapper::WStr::set(String^ value)
+void DataWrapper::StrUNICODE::set(String^ value)
 {
 	System::IntPtr ptr = Marshal::StringToHGlobalUni(value);
-	m_DataContainer->SetString((wchar_t*)ptr.ToPointer());
+	m_DataContainer->SetStrUNICODE((wchar_t*)ptr.ToPointer());
 	Marshal::FreeHGlobal(ptr);
-	RaisePropertyChanged(gcnew String("WStr"));
+	RaisePropertyChanged(gcnew String("StrUNICODE"));
 }
 
 void DataWrapper::RaisePropertyChanged(String^ propertyName)

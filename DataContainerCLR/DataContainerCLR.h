@@ -20,13 +20,13 @@ public:
 	~DataWrapper();
 	!DataWrapper();
 
-	property String^ Str
+	property String^ StrANSI
 	{
 		String^ get();
 		void set(String^);
 	}
 
-	property String^ WStr
+	property String^ StrUNICODE
 	{
 		String^ get();
 		void set(String^);

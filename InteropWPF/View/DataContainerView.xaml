@@ -27,12 +27,12 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Str :"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding DataContainer.Str}"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding DataContainer.Str}" IsReadOnly="True"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding DataContainer.StrANSI}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding DataContainer.StrANSI}" IsReadOnly="True"/>
 
         <TextBlock Grid.Row="2" Grid.Column="0" Text="WStr :"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding DataContainer.WStr}"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding DataContainer.WStr}" IsReadOnly="True"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding DataContainer.StrUNICODE}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding DataContainer.StrUNICODE}" IsReadOnly="True"/>
 
         <TextBlock Grid.Row="4" Grid.Column="0" Text="Integer :"/>
         <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding DataContainer.Integer, Converter={StaticResource IntToString}}"/>

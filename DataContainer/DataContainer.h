@@ -28,10 +28,10 @@ public:
 	DataContainer(void);
 	~DataContainer();
 	// TODO: ajoutez ici vos méthodes.
-	const char* GetString() const;
-	void SetString(const char* value);
-	const wchar_t* GetWString() const;
-	void SetString(const wchar_t* value);
+	const char* GetStrANSI() const;
+	void SetStrANSI(const char* value);
+	const wchar_t* GetStrUNICODE() const;
+	void SetStrUNICODE(const wchar_t* value);
 	int GetInt() const;
 	void SetInt(int value);
 
