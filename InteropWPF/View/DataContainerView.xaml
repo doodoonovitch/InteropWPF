@@ -6,36 +6,52 @@
              xmlns:local="clr-namespace:InteropWPF.View"
              xmlns:vm="clr-namespace:InteropWPF.ViewModel"
              xmlns:cv="clr-namespace:InteropWPF.Converter"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <cv:IntToStringConverter x:Key="IntToString"/>
     </UserControl.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Str :"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding DataContainer.StrANSI}"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding DataContainer.StrANSI}" IsReadOnly="True"/>
 
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="WStr :"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding DataContainer.StrUNICODE}"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding DataContainer.StrUNICODE}" IsReadOnly="True"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Str :"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding DataContainer.StrANSI}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding DataContainer.StrANSI}" IsReadOnly="True"/>
 
-        <TextBlock Grid.Row="4" Grid.Column="0" Text="Integer :"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding DataContainer.Integer, Converter={StaticResource IntToString}}"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding DataContainer.Integer, StringFormat={}{0}}" IsReadOnly="True"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="WStr :"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding DataContainer.StrUNICODE}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding DataContainer.StrUNICODE}" IsReadOnly="True"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Integer :"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding DataContainer.Integer, Converter={StaticResource IntToString}}"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding DataContainer.Integer, StringFormat={}{0}}" IsReadOnly="True"/>
+
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="CppObject :"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding DataContainer.CppObject.PropI, Converter={StaticResource IntToString}}"/>
+            <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding DataContainer.CppObject.PropI, StringFormat={}{0}}" IsReadOnly="True"/>
+
+        </Grid>
+
+        <xctk:PropertyGrid x:Name="_propertyGrid" Grid.Row="1" SelectedObject="{Binding DataContainer.CppObject}"></xctk:PropertyGrid>
+        
     </Grid>
 </UserControl>

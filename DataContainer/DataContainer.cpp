@@ -20,6 +20,7 @@ DATACONTAINER_API int fnDataContainer(void)
 DataContainer::DataContainer()
 	: m_str(_strdup("English (ANSI string)"))
 	, m_wstr(_wcsdup(L"日本語 (UNICODE string)"))
+	, m_cppObject(new CppObject())
 	,m_int(10)
 {
     return;
@@ -29,6 +30,7 @@ DataContainer::~DataContainer()
 {
 	free(m_str);
 	free(m_wstr);
+	delete m_cppObject;
 }
 
 const char* DataContainer::GetStrANSI() const
@@ -81,3 +83,9 @@ void DataContainer::SetInt(int value)
 {
 	m_int = value;
 }
+
+CppObject* DataContainer::GetCppObject() const
+{
+	return m_cppObject;
+}
+

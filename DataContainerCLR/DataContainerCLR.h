@@ -6,6 +6,8 @@
 #include "DataContainer.h"
 #pragma managed(pop)
 
+#include "CppObjectWrapper.h"
+
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Runtime::InteropServices;
@@ -45,6 +47,13 @@ public:
 		}
 	}
 
+	property DynamicObject^ CppObject
+	{
+		DynamicObject^ get()
+		{
+			return m_CppObjectWrapper;
+		}
+	}
 
 	virtual event PropertyChangedEventHandler^ PropertyChanged;
 	void RaisePropertyChanged(String^ propertyName);
@@ -56,6 +65,7 @@ protected:
 private:
 
 	DataContainer* m_DataContainer;
+	CppObjectWrapper^ m_CppObjectWrapper;
 		
 };
 

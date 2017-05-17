@@ -10,6 +10,7 @@ namespace DataContainerCLR
 
 DataWrapper::DataWrapper()
 	: m_DataContainer(new DataContainer())
+	, m_CppObjectWrapper(gcnew CppObjectWrapper(m_DataContainer->GetCppObject()))
 {
 
 }
