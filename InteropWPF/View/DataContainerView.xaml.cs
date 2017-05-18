@@ -23,7 +23,6 @@ namespace InteropWPF.View
         public DataContainerView()
         {
             InitializeComponent();
-            this.DataContext = new ViewModel.DataContainerViewModel();
         }
     }
 }
